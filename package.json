@@ -17,5 +17,8 @@
   "license": "ISC",
   "devDependencies": {
     "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "restify": "^8.5.1"
   }
 }
