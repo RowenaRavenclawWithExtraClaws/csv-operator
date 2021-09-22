@@ -1,20 +1,22 @@
-export interface Author {
+export interface GeneralTypes {}
+
+export interface Author extends GeneralTypes {
   email: string;
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
 }
 
-export interface Book {
+export interface Book extends GeneralTypes {
   title: string;
   isbn: string;
-  authors: Array<string>;
+  authors: string;
   description: string;
 }
 
-export interface Magazine {
+export interface Magazine extends GeneralTypes {
   title: string;
   isbn: string;
-  authors: Array<string>;
+  authors: string;
   publishedAt: string;
 }
 
