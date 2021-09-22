@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
-import { PORTNUMBER } from "./helpers";
-import { Endpoint } from "./types";
+import { PORTNUMBER } from "./app/helpers";
+import { Endpoint } from "./app/types";
 
 const app = express();
 
