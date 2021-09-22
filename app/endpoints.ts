@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import path from "path";
-import Items from "./Items";
+import Items from "./items";
 import {
   handleGetAll,
   handleGetItems,
