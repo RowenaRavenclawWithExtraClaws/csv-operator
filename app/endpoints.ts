@@ -1,28 +1,53 @@
 import { Request, Response } from "express";
+import path from "path";
+import Data from "./data";
 import {
   handleGetAll,
-  handleGetBooks,
+  handleGetItems,
   handleGetBooksMagazines,
-  handleGetMagazines,
 } from "./handlers";
 import { Endpoint } from "./types";
+
+const books = new Data();
+const magazines = new Data();
+
+const booksFilePath = path.join(__dirname, "..", "files", "books.csv");
+const magazinesFilePath = path.join(__dirname, "..", "files", "magazines.csv");
 
 export const getEndpoints: Array<Endpoint> = [
   {
     url: "/books-magazines",
-    handler: handleGetBooksMagazines,
+    handler: (req: Request, res: Response) =>
+      handleGetBooksMagazines(
+        req,
+        res,
+        books,
+        magazines,
+        booksFilePath,
+        magazinesFilePath
+      ),
   },
   {
     url: "/books",
-    handler: handleGetBooks,
+    handler: (req: Request, res: Response) =>
+      handleGetItems(req, res, books, booksFilePath),
   },
   {
     url: "/magazines",
-    handler: handleGetMagazines,
+    handler: (req: Request, res: Response) =>
+      handleGetItems(req, res, magazines, magazinesFilePath),
   },
   {
     url: "/all",
-    handler: handleGetAll,
+    handler: (req: Request, res: Response) =>
+      handleGetAll(
+        req,
+        res,
+        books,
+        magazines,
+        booksFilePath,
+        magazinesFilePath
+      ),
   },
 ];
 
