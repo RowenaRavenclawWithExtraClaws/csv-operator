@@ -63,9 +63,18 @@ export const handleGetAll = async (
   res.send({ all: booksMagazines });
 };
 
-export const handlePostItems = (
+export const handlePostItems = async (
   req: Request,
   res: Response,
   items: Items,
-  itemsFilePath: string
-) => {};
+  itemsFilePath: string,
+  fileName: string
+) => {
+  await items.populateItems(itemsFilePath);
+
+  await items.addNewItem(req.body, fileName);
+
+  res.send({
+    message: `new item was added to ${fileName}.csv`,
+  });
+};
