@@ -17,3 +17,8 @@ export interface Magazine {
   authors: Array<string>;
   publishedAt: string;
 }
+
+export interface Endpoint {
+  url: string;
+  handler: Function;
+}
