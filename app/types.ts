@@ -1,9 +1,3 @@
-export interface Author {
-  email: string;
-  firstname: string;
-  lastname: string;
-}
-
 export interface Book {
   title: string;
   isbn: string;
@@ -18,7 +12,7 @@ export interface Magazine {
   publishedAt: string;
 }
 
-export interface GeneralType extends Author, Book, Magazine {}
+export interface GeneralType extends Book, Magazine {}
 
 type Handler = (req: Express.Request, res: Express.Response) => void;
 

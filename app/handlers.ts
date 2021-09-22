@@ -1,14 +1,11 @@
-import { resolve } from "dns/promises";
 import { Request, Response } from "express";
 import path from "path";
 import Data from "./data";
 import { Book, Magazine } from "./types";
 
-const authors = new Data();
 const books = new Data();
 const magazines = new Data();
 
-const authorsFilePath = path.join(__dirname, "..", "files", "authors.csv");
 const booksFilePath = path.join(__dirname, "..", "files", "books.csv");
 const magazinesFilePath = path.join(__dirname, "..", "files", "magazines.csv");
 
