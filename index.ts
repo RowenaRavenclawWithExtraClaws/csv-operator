@@ -1,45 +1,10 @@
 import express from "express";
 import cors from "cors";
 import { PORTNUMBER } from "./app/helpers";
-import { Endpoint } from "./app/types";
+import { getEndpoints } from "./app/endpoints";
+import { postEndpoints } from "./app/endpoints";
 
 const app = express();
-
-const getEndpoints: Array<Endpoint> = [
-  {
-    url: "/all",
-    handler: (req: express.Request, res: express.Response) => {
-      res.send("get all");
-    },
-  },
-  {
-    url: "/books",
-    handler: (req: express.Request, res: express.Response) => {
-      res.send("get books");
-    },
-  },
-  {
-    url: "/magazines",
-    handler: (req: express.Request, res: express.Response) => {
-      res.send("get magz");
-    },
-  },
-];
-
-const postEndpoints: Array<Endpoint> = [
-  {
-    url: "/books",
-    handler: (req: express.Request, res: express.Response) => {
-      res.send("post books");
-    },
-  },
-  {
-    url: "/magazines",
-    handler: (req: express.Request, res: express.Response) => {
-      res.send("post magz");
-    },
-  },
-];
 
 // middlewares
 app.use(cors());
