@@ -6,6 +6,7 @@ import {
   handleGetItems,
   handleGetBooksMagazines,
   handlePostItems,
+  handleRoot,
 } from "./handlers";
 import { Endpoint } from "./types";
 
@@ -16,6 +17,10 @@ const booksFilePath = path.join(__dirname, "..", "files", "books.csv");
 const magazinesFilePath = path.join(__dirname, "..", "files", "magazines.csv");
 
 export const getEndpoints: Array<Endpoint> = [
+  {
+    url: "/",
+    handler: (req: Request, res: Response) => handleRoot(req, res),
+  },
   {
     url: "/books-magazines",
     handler: (req: Request, res: Response) =>

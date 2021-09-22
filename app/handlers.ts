@@ -1,6 +1,12 @@
 import { Request, Response } from "express";
 import Items from "./items";
 
+export const handleRoot = (_: Request, res: Response) => {
+  res.send(
+    "Welcome to the csv operator API. You can find the detailed doc here https://github.com/RowenaRavenclawWithExtraClaws/csv-operator/blob/main/readme.md"
+  );
+};
+
 export const handleGetBooksMagazines = async (
   _: Request,
   res: Response,
