@@ -1,6 +1,6 @@
 # CSV Operator
 
-CSV operator is a RESTFull API for doing basic operations with csv files.
+CSV operator is a RESTFull API for doing basic operations with csv files. The API is available at https://csv-operator.herokuapp.com/
 
 ## Installation and Running
 
@@ -40,16 +40,18 @@ Just clone the repo and run `npm install` followed by `npm start`
 
 ### `/books`
 
-- methods: `GET`, `POST`
-- query params: `isbn`, `author`
-- responses: `{book: {}}`, `{books: []}`, `{message: "some confirmation"}`
+- methods: `GET` or `POST`
+- query params: `isbn` or `author`
+- body: `{Book}`
+- responses: `{book: {}}`, `{books: []}`, or `{message: "some confirmation"}`
 - description: retrieves all information about books, find books by isbn, find books by author email, and add new records to the existing csv file.
 
 ### `/magazines`
 
-- methods: `GET`, `POST`
-- query params: `isbn`, `author`
-- responses: `{magazine: {}}`, `{magazines: []}`, `{message: "some confirmation"}`
+- methods: `GET` or `POST`
+- query params: `isbn` or `author`
+- body: `{Magazine}`
+- responses: `{magazine: {}}`, `{magazines: []}`, or `{message: "some confirmation"}`
 - description: retrieves all information about magazines, find magazines by isbn, find magazines by author email, and add new records to the existing csv file.
 
 ## Challenges
