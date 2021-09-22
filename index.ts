@@ -6,14 +6,39 @@ import { Endpoint } from "./types";
 const app = express();
 
 const getEndpoints: Array<Endpoint> = [
-  { url: "/all", handler: (req: object, res: object) => ({}) },
-  { url: "/books", handler: (req: object, res: object) => ({}) },
-  { url: "/magazines", handler: (req: object, res: object) => ({}) },
+  {
+    url: "/all",
+    handler: (req: express.Request, res: express.Response) => {
+      res.send("get all");
+    },
+  },
+  {
+    url: "/books",
+    handler: (req: express.Request, res: express.Response) => {
+      res.send("get books");
+    },
+  },
+  {
+    url: "/magazines",
+    handler: (req: express.Request, res: express.Response) => {
+      res.send("get magz");
+    },
+  },
 ];
 
 const postEndpoints: Array<Endpoint> = [
-  { url: "/books", handler: (req: object, res: object) => ({}) },
-  { url: "/magazines", handler: (req: object, res: object) => ({}) },
+  {
+    url: "/books",
+    handler: (req: express.Request, res: express.Response) => {
+      res.send("post books");
+    },
+  },
+  {
+    url: "/magazines",
+    handler: (req: express.Request, res: express.Response) => {
+      res.send("post magz");
+    },
+  },
 ];
 
 // middlewares
