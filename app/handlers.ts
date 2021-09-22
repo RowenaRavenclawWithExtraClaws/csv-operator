@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
-import Data from "./data";
+import Items from "./items";
 
 export const handleGetBooksMagazines = async (
   _: Request,
   res: Response,
-  books: Data,
-  magazines: Data,
+  books: Items,
+  magazines: Items,
   booksFilePath: string,
   magazinesFilePath: string
 ) => {
@@ -19,7 +19,7 @@ export const handleGetBooksMagazines = async (
 export const handleGetItems = async (
   req: Request,
   res: Response,
-  items: Data,
+  items: Items,
   itemsFilePath: string
 ) => {
   if (items.getItems().length === 0) await items.populateItems(itemsFilePath);
@@ -27,26 +27,26 @@ export const handleGetItems = async (
   const isbn = req.query.isbn;
   const author = req.query.author;
 
-  let itemsData = items.getItems();
+  let itemsItems = items.getItems();
 
   if (isbn) {
-    itemsData = items.filterByIsbn(isbn as string);
+    itemsItems = items.filterByIsbn(isbn as string);
 
-    if (itemsData.length > 0) res.send({ item: itemsData[0] });
+    if (itemsItems.length > 0) res.send({ item: itemsItems[0] });
     else res.status(404).send({ item: {} });
   } else if (author) {
-    itemsData = items.filterByAuthor(author as string);
+    itemsItems = items.filterByAuthor(author as string);
 
-    if (itemsData.length > 0) res.send({ items: itemsData });
+    if (itemsItems.length > 0) res.send({ items: itemsItems });
     else res.status(404).send({ items: [] });
-  } else res.send({ items: itemsData });
+  } else res.send({ items: itemsItems });
 };
 
 export const handleGetAll = async (
   _: Request,
   res: Response,
-  books: Data,
-  magazines: Data,
+  books: Items,
+  magazines: Items,
   booksFilePath: string,
   magazinesFilePath: string
 ) => {
@@ -62,3 +62,10 @@ export const handleGetAll = async (
 
   res.send({ all: booksMagazines });
 };
+
+export const handlePostItems = (
+  req: Request,
+  res: Response,
+  items: Items,
+  itemsFilePath: string
+) => {};

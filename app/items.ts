@@ -2,7 +2,7 @@ import fs from "fs";
 import csvParser from "csv-parser";
 import { GeneralType } from "./types";
 
-class Data {
+class Items {
   items: Array<GeneralType>;
 
   constructor() {
@@ -18,8 +18,8 @@ class Data {
     const pipedFileContnet = fileContent.pipe(csvParser({ separator: ";" }));
 
     const end = new Promise((resolve) => {
-      pipedFileContnet.on("data", (data: GeneralType) =>
-        resolve(this.items.push(data))
+      pipedFileContnet.on("Items", (Items: GeneralType) =>
+        resolve(this.items.push(Items))
       );
     });
 
@@ -37,4 +37,4 @@ class Data {
   }
 }
 
-export default Data;
+export default Items;
