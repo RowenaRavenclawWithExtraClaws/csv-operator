@@ -1,17 +1,17 @@
-interface Author {
+export interface Author {
   email: string;
   firstName: string;
   lastName: string;
 }
 
-interface Book {
+export interface Book {
   title: string;
   isbn: string;
   authors: Array<string>;
   description: string;
 }
 
-interface Magazine {
+export interface Magazine {
   title: string;
   isbn: string;
   authors: Array<string>;
