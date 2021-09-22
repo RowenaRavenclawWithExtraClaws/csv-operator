@@ -5,6 +5,7 @@ import {
   handleGetAll,
   handleGetItems,
   handleGetBooksMagazines,
+  handlePostItems,
 } from "./handlers";
 import { Endpoint } from "./types";
 
@@ -54,14 +55,12 @@ export const getEndpoints: Array<Endpoint> = [
 export const postEndpoints: Array<Endpoint> = [
   {
     url: "/books",
-    handler: (req: Request, res: Response) => {
-      res.send("post books");
-    },
+    handler: (req: Request, res: Response) =>
+      handlePostItems(req, res, books, booksFilePath, "books"),
   },
   {
     url: "/magazines",
-    handler: (req: Request, res: Response) => {
-      res.send("post magz");
-    },
+    handler: (req: Request, res: Response) =>
+      handlePostItems(req, res, magazines, magazinesFilePath, "magazines"),
   },
 ];
