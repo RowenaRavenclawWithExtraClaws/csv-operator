@@ -45,7 +45,10 @@ class Items {
         { id: "title", title: "title" },
         { id: "isbn", title: "isbn" },
         { id: "authors", title: "authors" },
-        { id: "description", title: "description" },
+        {
+          id: fileName === "books" ? "description" : "publishedAt",
+          title: fileName === "books" ? "description" : "publishedAt",
+        },
       ],
       fieldDelimiter: ";",
       append: true,
