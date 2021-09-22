@@ -1,3 +1,5 @@
+import { Request, Response } from "express";
+
 export interface Book {
   title: string;
   isbn: string;
@@ -14,7 +16,7 @@ export interface Magazine {
 
 export interface GeneralType extends Book, Magazine {}
 
-type Handler = (req: Express.Request, res: Express.Response) => void;
+type Handler = (req: Request, res: Response) => void;
 
 export interface Endpoint {
   url: string;
