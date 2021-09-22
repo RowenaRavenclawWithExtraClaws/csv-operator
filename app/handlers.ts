@@ -26,14 +26,12 @@ export const handleGetBooks = async (req: Request, res: Response) => {
   let booksData = books.getItems();
 
   if (isbn) {
-    booksData = booksData.filter((bookData: Book) => bookData.isbn === isbn);
+    booksData = books.filterByIsbn(isbn as string);
 
     if (booksData.length > 0) res.send({ book: booksData[0] });
     else res.status(404).send({ book: {} });
   } else if (author) {
-    booksData = booksData.filter((bookData: Book) =>
-      bookData.authors.split(",").includes(author as string)
-    );
+    booksData = books.filterByAuthor(author as string);
 
     if (booksData.length > 0) res.send({ books: booksData });
     else res.status(404).send({ books: [] });
@@ -50,16 +48,12 @@ export const handleGetMagazines = async (req: Request, res: Response) => {
   let magazinesData = magazines.getItems();
 
   if (isbn) {
-    magazinesData = magazinesData.filter(
-      (magazineData: Magazine) => magazineData.isbn === isbn
-    );
+    magazinesData = magazines.filterByIsbn(isbn as string);
 
     if (magazinesData.length > 0) res.send({ magazine: magazinesData[0] });
     else res.status(404).send({ magazine: {} });
   } else if (author) {
-    magazinesData = magazinesData.filter((magazineData: Magazine) =>
-      magazineData.authors.split(",").includes(author as string)
-    );
+    magazinesData = magazines.filterByAuthor(author as string);
 
     if (magazinesData.length > 0) res.send({ magazines: magazinesData });
     else res.status(404).send({ magazines: [] });
