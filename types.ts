@@ -18,7 +18,9 @@ export interface Magazine {
   publishedAt: string;
 }
 
+type Handler = (req: Express.Request, res: Express.Response) => void;
+
 export interface Endpoint {
   url: string;
-  handler: Function;
+  handler: Handler;
 }
