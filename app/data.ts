@@ -25,6 +25,16 @@ class Data {
 
     await end;
   }
+
+  filterByIsbn(isbn: string) {
+    return this.items.filter((item: GeneralType) => item.isbn === isbn);
+  }
+
+  filterByAuthor(author: string) {
+    return this.items.filter((item: GeneralType) =>
+      item.authors.split(",").includes(author as string)
+    );
+  }
 }
 
 export default Data;
